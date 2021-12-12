@@ -1,7 +1,7 @@
 def search():
     while True:
         try:
-            find = input("Find movie (if you want to see movie list type: List): ")
+            find = input("Find movie (to see available commands type 'Help'): ")
             find = f"{find[0].upper()}{find[1:len(find)]}"
         except IndexError:
             print("You must enter movie!") 
@@ -12,6 +12,12 @@ def search():
     movies = "".join(movies)
     if find == "List":
         print(f"\n{movies}")
+    elif find == "Help":
+        print("""\n
+        *********************************************************************
+        Find movie by title, genre, year or type 'List' to see list of movies
+        *********************************************************************\n""")
+        search()
     else:
         with open("movies.txt","r") as m:
             index = 0

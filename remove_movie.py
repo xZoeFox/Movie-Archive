@@ -1,6 +1,12 @@
 def remove():
-    delete = input("Delete the movie by Title (if you want to see movie list type: List):  ")
-    delete = f"{delete[0].upper()}{delete[1:len(delete)]}"
+    while True:
+        try:
+            delete = input("Delete the movie by Title (to see available commands type 'Help'): ")
+            delete = f"{delete[0].upper()}{delete[1:len(delete)]}"
+        except IndexError:
+            print("You must enter movie!") 
+        else:
+            break
     a_file = open("movies.txt", "r")
 
     lines = a_file.readlines()
@@ -16,9 +22,16 @@ def remove():
             del m
         else:
             print("You have not cleared list!")
+    elif delete == "Help":
+        print("""\n
+        *********************************************************************************************
+        Delete movie by title, to delete all movies type 'Clear' or type 'List' to see list of movies
+        *********************************************************************************************\n""")
+        remove()
     else:
         if delete == "List":
-            print(f"\n{movies}\nIf you want to delete all movies, type first Remove then Clear\n")
+            print(f"\n{movies}\n")
+            remove()
         else:
             for line in lines:
                 index += 1
