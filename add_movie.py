@@ -4,7 +4,7 @@ def add():
             genre = input("Type genre: ") #Action, Comedy, Horror, Romance, SciFi, Fantasy, Mystery
             genre = f"{genre[0].upper()}{genre[1:len(genre)]}"
             genre_list = ["Action", "Comedy", "Horror", "Romance", "Sci-fi", "Fantasy", "Mystery", "Thriller", "Drama", "Crime", "Animated"]
-            if genre in  genre_list:
+            if genre in genre_list:
                 break
             else:
                 print("\nGenre must be: Action, Comedy, Horror, Romance, Sci-fi, Fantasy, Mystery, Thriller, Drama, Crime, Animated\n")
@@ -14,7 +14,7 @@ def add():
         try:
             while True:
                 title = input("Type title: ")
-                title = f"{title[0].upper()}{title[1:len(title)]}"
+                title = title.title()
                 if title[0] == " ":
                     print("Warning: Blank Space!")
                 else:

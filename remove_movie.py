@@ -2,7 +2,7 @@ def remove():
     while True:
         try:
             delete = input("Delete the movie by Title (to see available commands type 'Help'): ")
-            delete = f"{delete[0].upper()}{delete[1:len(delete)]}"
+            delete = delete.title()
         except IndexError:
             print("You must enter movie!") 
         else:

@@ -2,7 +2,7 @@ def search():
     while True:
         try:
             find = input("Find movie (to see available commands type 'Help'): ")
-            find = f"{find[0].upper()}{find[1:len(find)]}"
+            find = find.title()
         except IndexError:
             print("You must enter movie!") 
         else:
